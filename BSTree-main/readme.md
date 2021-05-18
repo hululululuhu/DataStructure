@@ -28,3 +28,4 @@
 
 
 ![](https://pic.leetcode-cn.com/1621334018-kEZyCS-image.png)
+如图所示
