@@ -1,4 +1,4 @@
-class AVLTree{
+class AVTree{
 
     public static TreeNodes insert(TreeNodes root, int val){
         if(root == null){
