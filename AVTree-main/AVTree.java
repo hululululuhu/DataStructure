@@ -1,4 +1,4 @@
-class AVTree{
+class AVLTree{
 
     public static TreeNodes insert(TreeNodes root, int val){
         if(root == null){
@@ -105,7 +105,7 @@ class AVTree{
         cur.bf = childL.bf = 0;
         return root;
     }
-    
+
     // 左单旋
     private static TreeNodes rotateL(TreeNodes cur, TreeNodes root) {
         TreeNodes childR = cur.right;
