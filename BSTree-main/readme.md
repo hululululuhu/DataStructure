@@ -27,5 +27,5 @@
 3. 出度为2，删除左子树中最大的节点值，并用这个最大值替换欲删除节点的值
 
 
-![](https://pic.leetcode-cn.com/1621334018-kEZyCS-image.png)
+![xxx](https://img-blog.csdnimg.cn/20210519092332562.JPG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMwMTI0MjQx,size_16,color_FFFFFF,t_70)
 如图所示
