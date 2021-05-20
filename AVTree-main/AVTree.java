@@ -1,3 +1,42 @@
+class TreeNodes{
+    public int val;
+    public TreeNodes left;
+    public TreeNodes right;
+    public TreeNodes parent;
+    public int bf; // 平衡因子：0：平衡； < 0,  左边大；> 0，右边大
+    TreeNodes(){ };
+    TreeNodes(int val){
+        this.val = val;
+    }
+    TreeNodes(int val, int bf){
+        this.val = val;
+        this.bf = bf;
+    }
+    TreeNodes(int val, TreeNodes parent, int bf){
+        this.val = val;
+        this.parent = parent;
+        this.bf = bf;
+    }
+    TreeNodes(int val, TreeNodes left, TreeNodes right){
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+    TreeNodes(int val, TreeNodes left, TreeNodes right, TreeNodes parent){
+        this.val = val;
+        this.left = left;
+        this.right = right;
+        this.parent = parent;
+    }
+    TreeNodes(int val, TreeNodes left, TreeNodes right, TreeNodes parent, int bf){
+        this.val = val;
+        this.left = left;
+        this.right = right;
+        this.parent = parent;
+        this.bf = bf;
+    }
+}
+
 class AVTree{
 
     public static TreeNodes insert(TreeNodes root, int val){
@@ -36,7 +75,7 @@ class AVTree{
 
         // step3：更新平衡因子
         while (parent != null){
-            if(parent.left != null && cur.val == parent.left.val){
+            if(cur == parent.left){
                 parent.bf--;
             }
             else {
@@ -103,6 +142,7 @@ class AVTree{
             childL.parent = parent;
         }
         cur.bf = childL.bf = 0;
+//        System.out.println(lefvelTrvel(root));
         return root;
     }
 
@@ -113,7 +153,7 @@ class AVTree{
         TreeNodes parent = cur.parent;
 
         cur.right = childRL;
-
+        System.out.println(cur.val);
         if(childRL != null){
             childRL.parent = cur;
         }
@@ -123,7 +163,7 @@ class AVTree{
             root = childR;
             root.parent = null;
         }else {
-            if(parent.left == childR){
+            if(parent.left == cur){
                 parent.left = childR;
             }else {
                 parent.right = childR;
@@ -140,6 +180,7 @@ class AVTree{
         TreeNodes childRL = childR.right;
         int bf = childRL.bf;
         root = rotateR(cur.right, root);
+        System.out.println(lefvelTrvel(root));
         root = rotateL(cur, root);
         if(bf == 0){
             childRL.bf = childR.bf = cur.bf = 0;
@@ -199,19 +240,25 @@ class AVTree{
 
     public static void main(String[] args) {
         List<Integer> nums = new ArrayList<Integer>(){{
-            add(20);
-            add(10);
-            add(50);
             add(40);
+            add(20);
             add(60);
+            add(10);
+            add(30);
+            add(50);
+            add(70);
         }};
         TreeNodes root = new TreeNodes(nums.get(0), 0);
         for(int i = 1; i < nums.size(); i++){
             root = insert(root, nums.get(i));
         }
         System.out.println(lefvelTrvel(root));
-        root = insert(root, 30);
-        System.out.println(root.val);
+        root = insert(root, 25);
+        root = insert(root, 35);
+        System.out.println(lefvelTrvel(root));
+        System.out.println("**********");
+        root = insert(root, 37);
+        System.out.println(lefvelTrvel(root));
 
     }
 }
