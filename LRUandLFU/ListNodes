@@ -1,0 +1,8 @@
+class ListNodes{
+    public int val;
+    public ListNodes next;
+    public ListNodes parent;
+    ListNodes(int val){
+        this.val = val;
+    }
+}
