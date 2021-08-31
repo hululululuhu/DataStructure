@@ -1,5 +1,4 @@
 class BIT:
-
     def __init__(self, a):
         a = [0] + a
         n = len(a)
@@ -23,6 +22,10 @@ class BIT:
         while i <= self.n:
             self.c[i] += val
             i += self.lowbit(i)
+    
+    def range_update(self, l, r, val):
+        self.update(l, val)
+        self.update(r + 1, -val)
 
     def query(self, pos):
         ans = 0
